@@ -18,10 +18,10 @@ Note that this module is only compatible with SQLite 3.6.16 or newer.
 == SYNOPSIS
 
   require "sqlite3"
-  
+
   # Open a database
   db = SQLite3::Database.new "test.db"
-  
+
   # Create a table
   rows = db.execute <<-SQL
     create table numbers (
@@ -29,7 +29,7 @@ Note that this module is only compatible with SQLite 3.6.16 or newer.
       val int
     );
   SQL
-  
+
   # Execute a few inserts
   {
     "one" => 1,
@@ -55,9 +55,9 @@ Note that this module is only compatible with SQLite 3.6.16 or newer.
   SQL
 
   # Execute inserts with parameter markers
-  db.execute("INSERT INTO students (name, email, grade, blog) 
+  db.execute("INSERT INTO students (name, email, grade, blog)
               VALUES (?, ?, ?, ?)", ["Jane", "me@janedoe.com", "A", "http://blog.janedoe.com"])
-  
+
   db.execute( "select * from students" ) do |row|
     p row
   end
@@ -109,10 +109,3 @@ For help figuring out the SQLite3/Ruby interface, check out the
 SYNOPSIS as well as the RDoc. It includes examples of
 usage. If you have any questions that you feel should be addressed in the
 FAQ, please send them to {the mailing list}[http://groups.google.com/group/sqlite3-ruby]
-
-== Source Code
-
-The source repository is accessible via git:
-
-  git clone git://github.com/sparklemotion/sqlite3-ruby.git
-
